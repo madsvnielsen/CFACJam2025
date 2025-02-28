@@ -11,7 +11,7 @@ The final game concept is still being decided, and this README will be updated a
 
 1. **Clone this repository**:  
    ```bash
-   git clone https://github.com/yourusername/code-for-a-cause.git
+   git clone https://github.com/madsvnielsen/CFACJam2025.git
    ```
 2. **Open in Unity**:  
    - Ensure you have the latest **Unity version** (recommended version TBD).  
