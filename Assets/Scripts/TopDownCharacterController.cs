@@ -12,6 +12,10 @@ public class TopDownCharacterController : MonoBehaviour
     public float switchDirectionDelay = 0.5f;
     public float rotationSpeed = 10f;
 
+    public float bounceDelay = 0.2f; // Time before bouncing off
+
+    public bool startGame = true;
+
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator animator;
@@ -19,7 +23,7 @@ public class TopDownCharacterController : MonoBehaviour
     private Transform directionIndicator;
     private SpriteRenderer indicatorSprite;
     private Vector2 lastDirection = Vector2.right;
-    private bool isSwitchingDirection = false;
+    private bool isSwitchingDirection = true;
 
     void Start()
     {
@@ -36,8 +40,10 @@ public class TopDownCharacterController : MonoBehaviour
     void Update()
     {
         // Check for Space keypress in Update() instead of FixedUpdate()
-        if (Input.GetKeyDown(KeyCode.Space) && !isSwitchingDirection)
+        if (Input.GetMouseButtonDown(0) && (!isSwitchingDirection || startGame))
         {
+            startGame = false;
+            FindFirstObjectByType<MenuController>().RemoveStartGameToolTip();
             Debug.Log("Keypress detected!");
             StartCoroutine(SwitchDirectionTowardsMouse());
         }
@@ -103,26 +109,59 @@ public class TopDownCharacterController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.contactCount == 0) return; // Ensure there are contacts
+       if (collision.contactCount == 0) return;
 
         Vector2 averageNormal = Vector2.zero;
+        Vector2 averageContactPoint = Vector2.zero;
+
+
 
         // Sum up all contact normals
         for (int i = 0; i < collision.contactCount; i++)
         {
             averageNormal += collision.GetContact(i).normal;
+            averageContactPoint += collision.GetContact(i).point;
+
         }
 
-        // Get the average normal
-        averageNormal.Normalize();
+        averageNormal.Normalize(); // Get average normal
+        averageContactPoint /= collision.contactCount;
+
 
         // Reflect movement direction using the averaged normal
-        lastDirection = Vector2.Reflect(lastDirection, averageNormal).normalized;
+        Vector2 newDirection = Vector2.Reflect(lastDirection, averageNormal).normalized;
 
-        // Apply a force in the new direction to maintain momentum
-        rb.linearVelocity = lastDirection * maxSpeed;
+        // Stop movement temporarily
+        StartCoroutine(BounceWithDelay(newDirection, averageContactPoint));
+    }
 
-        // Flip sprite direction appropriately
+    IEnumerator BounceWithDelay(Vector2 newDirection, Vector2 contactPoint)
+    {
+        isSwitchingDirection = true; // Prevent movement during pause
+        rb.linearVelocity = Vector2.zero;  // Stop movement
+
+         // Rotate sprite to face the contact point
+        Vector2 directionToContact = contactPoint - (Vector2)transform.position;
+        float contactAngle = Mathf.Atan2(directionToContact.y, directionToContact.x) * Mathf.Rad2Deg;
+        
+        // Rotate the sprite so the bottom faces the contact point
+        transform.rotation = Quaternion.Euler(0, 0, contactAngle + 90f); 
+        directionIndicator.gameObject.SetActive(false);
+
+        // Optional: Play impact animation or effect
+        animator.SetTrigger("Impact");
+
+        yield return new WaitForSeconds(bounceDelay); // Wait before bouncing
+
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        directionIndicator.gameObject.SetActive(true);
+
+        lastDirection = newDirection; // Update direction after delay
+        rb.linearVelocity = lastDirection * maxSpeed; // Resume movement
+
+        isSwitchingDirection = false; // Allow movement again
+
+        // Flip sprite based on direction
         sprite.flipX = lastDirection.x < 0;
     }
 
