@@ -1,93 +1,129 @@
+using System.Collections;
 using UnityEngine;
 
 public class TopDownCharacterController : MonoBehaviour
 {
-    public float moveSpeed = 10f;        // Force applied for movement
-    public float maxSpeed = 5f;          // Maximum movement speed
-    public float stopThreshold = 0.1f;   // Speed at which player stops
-    public float minMoveDistance = 1f;   // Minimum distance before changing direction
-    public float bounceRotationFactor = 180f; // Rotation adjustment when bouncing
-
-    public float dragFactor = 2f;        // Slows down movement naturally
+    public float moveSpeed = 10f;
+    public float maxSpeed = 5f;
+    public float stopThreshold = 0.1f;
+    public float minMoveDistance = 1f;
+    public float bounceRotationFactor = 180f;
+    public float dragFactor = 2f;
+    public float switchDirectionDelay = 0.5f;
+    public float rotationSpeed = 10f;
 
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator animator;
-    private Transform directionIndicator; // Reference to the direction indicator
-    private SpriteRenderer indicatorSprite; // Sprite Renderer for visibility control
-    private Vector2 lastDirection = Vector2.right; // Stores last valid movement direction
+    public Animator glowAnimator;
+    private Transform directionIndicator;
+    private SpriteRenderer indicatorSprite;
+    private Vector2 lastDirection = Vector2.right;
+    private bool isSwitchingDirection = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>(); // Get Animator component
-        rb.freezeRotation = true; // Prevents Rigidbody2D from rotating the sprite
-        rb.linearDamping = dragFactor; // Applies natural deceleration
+        animator = GetComponent<Animator>();
+        rb.freezeRotation = true;
+        rb.linearDamping = dragFactor;
+
         directionIndicator = transform.GetChild(0);
         indicatorSprite = directionIndicator.GetComponent<SpriteRenderer>();
     }
 
+    void Update()
+    {
+        // Check for Space keypress in Update() instead of FixedUpdate()
+        if (Input.GetKeyDown(KeyCode.Space) && !isSwitchingDirection)
+        {
+            Debug.Log("Keypress detected!");
+            StartCoroutine(SwitchDirectionTowardsMouse());
+        }
+    }
+
     void FixedUpdate()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePosition - rb.position);
-
-        // Update direction only if the mouse is far enough
-        if (direction.magnitude >= minMoveDistance)
-        {
-            lastDirection = direction.normalized;
-            directionIndicator.gameObject.SetActive(true); // Hide indicator
-
-        } else{
-            directionIndicator.gameObject.SetActive(false); // Hide indicator
-
-        }
-
-        // Apply force in the last known direction if the mouse is far enough
-        if (direction.magnitude >= minMoveDistance)
+        if (!isSwitchingDirection)
         {
             rb.AddForce(lastDirection * moveSpeed);
         }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
 
-        // Clamp speed to maxSpeed
         if (rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
 
-        // Stop movement if speed is below threshold
         if (rb.linearVelocity.magnitude < stopThreshold)
         {
-            rb.linearVelocity = Vector2.zero; // Stop completely
-            animator.SetBool("IsMoving", false); // Switch to idle animation
+            rb.linearVelocity = Vector2.zero;
+            animator.SetBool("IsMoving", false);
         }
         else
         {
-            animator.SetBool("IsMoving", true); // Play movement animation
+            animator.SetBool("IsMoving", true);
         }
 
-         if (directionIndicator.gameObject.activeSelf) // Only rotate if it's visible
+        sprite.flipX = lastDirection.x < 0;
+
+       if (directionIndicator.gameObject.activeSelf)
         {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 directionToMouse = (mousePosition - (Vector2)directionIndicator.position).normalized;
+
+            float angle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
             directionIndicator.rotation = Quaternion.Euler(0, 0, angle);
         }
-
-        // Flip sprite based on mouse position
-        sprite.flipX = mousePosition.x < rb.position.x;
     }
 
-    // Handle bouncing off walls
+    IEnumerator SwitchDirectionTowardsMouse()
+    {
+        isSwitchingDirection = true;
+        glowAnimator.SetTrigger("SwitchDirection");
+        rb.linearVelocity = Vector2.zero;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 newDirection = (mousePosition - rb.position).normalized;
+        if (newDirection.magnitude > 0.1f)
+        {
+            lastDirection = newDirection;
+        }
+
+        yield return new WaitForSeconds(switchDirectionDelay);
+
+
+      
+
+        isSwitchingDirection = false;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 normal = collision.contacts[0].normal;
+        if (collision.contactCount == 0) return; // Ensure there are contacts
 
-        // Reflect movement direction
-        lastDirection = Vector2.Reflect(lastDirection, normal).normalized;
+        Vector2 averageNormal = Vector2.zero;
 
-        // Add slight random variation in bounce direction for a more dynamic feel
-        float bounceAngle = Mathf.Atan2(lastDirection.y, lastDirection.x) * Mathf.Rad2Deg;
-        float rotatedBounceAngle = bounceAngle + Random.Range(-bounceRotationFactor / 2, bounceRotationFactor / 2);
-        lastDirection = new Vector2(Mathf.Cos(rotatedBounceAngle * Mathf.Deg2Rad), Mathf.Sin(rotatedBounceAngle * Mathf.Deg2Rad)).normalized;
+        // Sum up all contact normals
+        for (int i = 0; i < collision.contactCount; i++)
+        {
+            averageNormal += collision.GetContact(i).normal;
+        }
+
+        // Get the average normal
+        averageNormal.Normalize();
+
+        // Reflect movement direction using the averaged normal
+        lastDirection = Vector2.Reflect(lastDirection, averageNormal).normalized;
+
+        // Apply a force in the new direction to maintain momentum
+        rb.linearVelocity = lastDirection * maxSpeed;
+
+        // Flip sprite direction appropriately
+        sprite.flipX = lastDirection.x < 0;
     }
+
 }

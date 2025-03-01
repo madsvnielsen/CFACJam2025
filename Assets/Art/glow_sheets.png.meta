@@ -1,0 +1,362 @@
+fileFormatVersion: 2
+guid: 45964272b8632354abe4c68cc3cd5973
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8491956614035521118
+    second: spritesheet_2_0
+  - first:
+      213: -3837702315187162603
+    second: spritesheet_2_1
+  - first:
+      213: 2569100708621144869
+    second: spritesheet_2_2
+  - first:
+      213: -3993288347735931237
+    second: spritesheet_2_3
+  - first:
+      213: 8950025076985365624
+    second: spritesheet_2_4
+  - first:
+      213: -8875862564875435290
+    second: spritesheet_2_5
+  - first:
+      213: 8233645187710016264
+    second: spritesheet_2_6
+  - first:
+      213: 8521182879252874860
+    second: spritesheet_2_7
+  - first:
+      213: 5129092750833557445
+    second: spritesheet_2_8
+  - first:
+      213: -9000165094889331372
+    second: spritesheet_2_9
+  - first:
+      213: 8294873765667503973
+    second: spritesheet_2_10
+  - first:
+      213: 3832644435989426482
+    second: spritesheet_2_11
+  - first:
+      213: 4738425652870097708
+    second: spritesheet_2_12
+  - first:
+      213: 2368661559500192228
+    second: spritesheet_2_13
+  - first:
+      213: 9103127817338196606
+    second: spritesheet_2_14
+  - first:
+      213: -8149018022313179117
+    second: spritesheet_2_15
+  - first:
+      213: 6751242756475174427
+    second: spritesheet_2_16
+  - first:
+      213: 7487175565018950654
+    second: spritesheet_2_17
+  - first:
+      213: 5526209199736040706
+    second: spritesheet_2_18
+  - first:
+      213: -3879364905738395079
+    second: spritesheet_2_19
+  - first:
+      213: 1822403349918308376
+    second: spritesheet_2_20
+  - first:
+      213: -1584016898556111026
+    second: spritesheet_2_21
+  - first:
+      213: -7714713428465645256
+    second: spritesheet_2_22
+  - first:
+      213: 8257875754961214822
+    second: spritesheet_2_23
+  - first:
+      213: 4271065831418628320
+    second: spritesheet_2_24
+  - first:
+      213: -311483218838270405
+    second: spritesheet_2_25
+  - first:
+      213: -7916955099504360590
+    second: spritesheet_2_26
+  - first:
+      213: 2044539080368523981
+    second: spritesheet_2_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: glow_sheets_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 750
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9aeb4d2b7283f4fab3df308a678fbc
+      internalID: -1967618759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_sheets_1
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 750
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a6cc1d052fa6846880d0dd6a748816
+      internalID: -531549976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_sheets_2
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 750
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3158b116127cc4183a4d69601cc11f
+      internalID: 525708322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_sheets_3
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 0
+        width: 750
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892ac94e89595cf4c9d69f09a27669da
+      internalID: -2010423770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_sheets_4
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 750
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b87f5ec60cbc743ad23952b342475a
+      internalID: -518724598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_sheets_5
+      rect:
+        serializedVersion: 2
+        x: 3750
+        y: 0
+        width: 750
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550e72f7c61d6c34fa88486e80393983
+      internalID: -1248065994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_sheets_6
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 0
+        width: 750
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7227d05b19a86964787a17973c5db165
+      internalID: -1630200734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 12a25ab069a1733489b4e747516b502c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      glow_sheets_0: -1967618759
+      glow_sheets_1: -531549976
+      glow_sheets_2: 525708322
+      glow_sheets_3: -2010423770
+      glow_sheets_4: -518724598
+      glow_sheets_5: -1248065994
+      glow_sheets_6: -1630200734
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

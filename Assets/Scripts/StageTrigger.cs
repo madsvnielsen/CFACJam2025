@@ -9,7 +9,7 @@ public class StageTrigger : MonoBehaviour
         cameraController = FindFirstObjectByType<CameraController>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player")) // Make sure the player has the "Player" tag
         {
