@@ -1,6 +1,7 @@
 using System.Collections;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -75,6 +76,6 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player Died!");
-        // Add death logic here (respawn, restart game, etc.)
+        SceneManager.LoadScene("GameOver");
     }
 }

@@ -879,7 +879,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1626,7 +1626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -221.77, y: 74.8}
+  m_AnchoredPosition: {x: 59.92, y: 74.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1091786552
@@ -2081,13 +2081,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3793059313034423141, guid: bd30bf1d6dfbfca41b89daaeb74d6caf, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5373749150226789328, guid: bd30bf1d6dfbfca41b89daaeb74d6caf, type: 3}
       propertyPath: m_Radius
-      value: 8.41
+      value: 10.31
       objectReference: {fileID: 0}
     - target: {fileID: 6907265535638463859, guid: bd30bf1d6dfbfca41b89daaeb74d6caf, type: 3}
       propertyPath: m_Name
       value: MoleEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7779155682989561505, guid: bd30bf1d6dfbfca41b89daaeb74d6caf, type: 3}
+      propertyPath: m_Radius
+      value: 2.61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3081,7 +3089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6276465895254040377, guid: aaaa27c22a0d0f747a625c6295e8dc11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.38
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6276465895254040377, guid: aaaa27c22a0d0f747a625c6295e8dc11, type: 3}
       propertyPath: m_LocalPosition.y
