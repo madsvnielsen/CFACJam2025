@@ -1,0 +1,421 @@
+fileFormatVersion: 2
+guid: b5b49351c452ba24ab80cacd6e248962
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5336349569858357675
+    second: spritesheet_8_0
+  - first:
+      213: 7828495539771501544
+    second: spritesheet_8_1
+  - first:
+      213: -1866556636571339874
+    second: spritesheet_8_2
+  - first:
+      213: 4441696927903496420
+    second: spritesheet_8_3
+  - first:
+      213: -6870132142113082089
+    second: spritesheet_8_4
+  - first:
+      213: 8467904470554450341
+    second: spritesheet_8_5
+  - first:
+      213: -6834443202897885808
+    second: spritesheet_8_6
+  - first:
+      213: 4915767246191980581
+    second: spritesheet_8_7
+  - first:
+      213: -4737034530533626540
+    second: spritesheet_8_8
+  - first:
+      213: 4663001612711852343
+    second: spritesheet_8_9
+  - first:
+      213: 1774304699379379500
+    second: spritesheet_8_10
+  - first:
+      213: 1964645624697877057
+    second: spritesheet_8_11
+  - first:
+      213: 5182605748330074650
+    second: spritesheet_8_12
+  - first:
+      213: -3227279614473565654
+    second: spritesheet_8_13
+  - first:
+      213: 4908294286517343389
+    second: spritesheet_8_14
+  - first:
+      213: -6640293538429821267
+    second: spritesheet_8_15
+  - first:
+      213: 6781564044681982498
+    second: spritesheet_8_16
+  - first:
+      213: 3294314942516298944
+    second: spritesheet_8_17
+  - first:
+      213: -6943966754606274534
+    second: spritesheet_8_18
+  - first:
+      213: -9179830583367965079
+    second: spritesheet_8_19
+  - first:
+      213: -928565434946192640
+    second: spritesheet_8_20
+  - first:
+      213: -197083687843007475
+    second: spritesheet_8_21
+  - first:
+      213: -5063359023349114243
+    second: spritesheet_8_22
+  - first:
+      213: -2759349673502981149
+    second: spritesheet_8_23
+  - first:
+      213: 2837052888503164790
+    second: spritesheet_8_24
+  - first:
+      213: 7519642969368024414
+    second: spritesheet_8_25
+  - first:
+      213: 8885540683268822938
+    second: spritesheet_8_26
+  - first:
+      213: -5822221164465499113
+    second: spritesheet_8_27
+  - first:
+      213: -5764375396120434675
+    second: spritesheet_8_28
+  - first:
+      213: -4961978054664790574
+    second: spritesheet_8_29
+  - first:
+      213: 5712419833546889663
+    second: spritesheet_8_30
+  - first:
+      213: 4604732943254548406
+    second: spritesheet_8_31
+  - first:
+      213: 5608265058159212635
+    second: spritesheet_8_32
+  - first:
+      213: -237064052132153101
+    second: spritesheet_8_33
+  - first:
+      213: 3834500955214538766
+    second: spritesheet_8_34
+  - first:
+      213: -1345073334889277652
+    second: spritesheet_8_35
+  - first:
+      213: -150755535525172800
+    second: spritesheet_8_36
+  - first:
+      213: 103923156441799628
+    second: spritesheet_8_37
+  - first:
+      213: 7789350812485580087
+    second: spritesheet_8_38
+  - first:
+      213: -5296813523273632438
+    second: spritesheet_8_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mole_attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 604
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37923f3789129c47bbea2cb7d43372b
+      internalID: 2013764879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mole_attack_1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 604
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d23f1be1581f1b42a3b4b511c9773dd
+      internalID: 1337032364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mole_attack_2
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 604
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a558ed4d76dc6d4e80617188b9cfe85
+      internalID: 1253535038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mole_attack_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 302
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da19d69333136743b3fc858d80b10fd
+      internalID: -191608619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mole_attack_4
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 302
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5bbbeadbf2d5148b368bb5cab682f7
+      internalID: -1027707637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mole_attack_5
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 302
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa4ba8c7738d4194ba1b036d14a83b43
+      internalID: 1274886370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mole_attack_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9b7cacd59da524a860c83aa013b640
+      internalID: 1547682269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mole_attack_7
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 0
+        width: 302
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61db756372fa5ee47a22a655996309a8
+      internalID: 679945283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1fead91347754134682608106fbdd584
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mole_attack_0: 2013764879
+      mole_attack_1: 1337032364
+      mole_attack_2: 1253535038
+      mole_attack_3: -191608619
+      mole_attack_4: -1027707637
+      mole_attack_5: 1274886370
+      mole_attack_6: 1547682269
+      mole_attack_7: 679945283
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

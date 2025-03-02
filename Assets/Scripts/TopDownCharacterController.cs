@@ -35,6 +35,8 @@ public class TopDownCharacterController : MonoBehaviour
 
         directionIndicator = transform.GetChild(0);
         indicatorSprite = directionIndicator.GetComponent<SpriteRenderer>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
