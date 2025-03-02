@@ -46,7 +46,6 @@ public class TopDownCharacterController : MonoBehaviour
         {
             startGame = false;
             FindFirstObjectByType<MenuController>().RemoveStartGameToolTip();
-            Debug.Log("Keypress detected!");
             StartCoroutine(SwitchDirectionTowardsMouse());
         }
     }

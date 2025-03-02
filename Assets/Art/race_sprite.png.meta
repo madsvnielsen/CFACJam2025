@@ -121,177 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Drawing_158_2_0
+      name: race_sprite_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 258
-        width: 230
-        height: 242
+        x: 0
+        y: 250
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 78512af3719d86c60800000000000000
-      internalID: 7811732247549187463
+      spriteID: fd74764be5cfa444f89686c4eeca5b60
+      internalID: 1595786496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drawing_158_2_1
+      name: race_sprite_1
       rect:
         serializedVersion: 2
-        x: 259
-        y: 261
-        width: 234
-        height: 239
+        x: 250
+        y: 250
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4d464a1410503c8b0800000000000000
-      internalID: -5133253647317834540
+      spriteID: ce746fe05a6bd0247875a185c2119108
+      internalID: -1822419530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drawing_158_2_2
+      name: race_sprite_2
       rect:
         serializedVersion: 2
-        x: 508
-        y: 262
-        width: 230
-        height: 238
+        x: 500
+        y: 250
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a42210beb4c84aa00800000000000000
-      internalID: 766892094252982858
+      spriteID: f89cd00b1a518bc40aec4a25b57c795b
+      internalID: -1909436215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drawing_158_2_3
+      name: race_sprite_3
       rect:
         serializedVersion: 2
-        x: 759
-        y: 259
-        width: 230
-        height: 241
+        x: 750
+        y: 250
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f716fba5c2f3a9810800000000000000
-      internalID: 1772798863057314175
+      spriteID: 7b8dedd1befeac542b1605ae70e40361
+      internalID: -1545844243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drawing_158_2_4
+      name: race_sprite_4
       rect:
         serializedVersion: 2
-        x: 9
-        y: 14
-        width: 230
-        height: 237
+        x: 0
+        y: 0
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f18497b48e43dbf00800000000000000
-      internalID: 1134120853470529567
+      spriteID: 9656e420c2128b143916a1f2742d11a0
+      internalID: 1397342585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drawing_158_2_5
+      name: race_sprite_5
       rect:
         serializedVersion: 2
-        x: 259
-        y: 20
-        width: 230
-        height: 231
+        x: 250
+        y: 0
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: da0e25847b4db3cb0800000000000000
-      internalID: -4883075487295676243
+      spriteID: 8f5572097a6c2e2408f8556f2c9bd93d
+      internalID: 60575701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drawing_158_2_6
+      name: race_sprite_6
       rect:
         serializedVersion: 2
-        x: 509
-        y: 17
-        width: 230
-        height: 234
+        x: 500
+        y: 0
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bed7c477e9416a470800000000000000
-      internalID: 8405428425372499435
+      spriteID: 110d92ae252ec0c47b327b37b1fc1328
+      internalID: -420894337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drawing_158_2_7
+      name: race_sprite_7
       rect:
         serializedVersion: 2
-        x: 759
-        y: 4
-        width: 230
-        height: 247
+        x: 750
+        y: 0
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b767aa1811eff6bd0800000000000000
-      internalID: -2634607905845119365
+      spriteID: dc221b92c5c823440928bf9eb864be55
+      internalID: -23903578
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: aecd2dcc3d44e9b46bf86b488bbdd14b
     internalID: 0
     vertices: []
     indices: 
@@ -310,14 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Drawing_158_2_0: 7811732247549187463
-      Drawing_158_2_1: -5133253647317834540
-      Drawing_158_2_2: 766892094252982858
-      Drawing_158_2_3: 1772798863057314175
-      Drawing_158_2_4: 1134120853470529567
-      Drawing_158_2_5: -4883075487295676243
-      Drawing_158_2_6: 8405428425372499435
-      Drawing_158_2_7: -2634607905845119365
+      race_sprite_0: 1595786496
+      race_sprite_1: -1822419530
+      race_sprite_2: -1909436215
+      race_sprite_3: -1545844243
+      race_sprite_4: 1397342585
+      race_sprite_5: 60575701
+      race_sprite_6: -420894337
+      race_sprite_7: -23903578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
