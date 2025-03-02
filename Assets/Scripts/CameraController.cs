@@ -12,13 +12,10 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        if (targetStage != null)
-        {
-
+        
             // Move the camera towards the target stage smoothly
-            Vector3 targetPosition = new Vector3(player.transform.position.x, targetStage.position.y, transform.position.z);
+            Vector3 targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
             transform.position = targetPosition;//Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
-        }
     }
 
     public void SetTargetStage(Transform newStage)
