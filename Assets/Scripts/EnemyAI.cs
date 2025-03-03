@@ -7,6 +7,8 @@ public class EnemyAI : MonoBehaviour
     public float lungeSpeed = 15f;       // Speed when lunging
     public float stopThreshold = 0.2f;   // Speed at which the enemy stops after lunging
 
+    public int health = 2;
+
     public float prepareAttackTime = 0.5f; // Time spent preparing attack
     public float chargeUpTime = 0.5f;      // Time spent charging before lunging
     public float attackCooldown = 1.0f;    // Cooldown before attacking again
@@ -18,6 +20,9 @@ public class EnemyAI : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator animator;
+
+    private bool isInvincible = false;
+    public Animator explosionAnimator;
     private Transform player;
 
     private Vector2 storedLungeDirection; // Stores lunge direction before lunging
@@ -25,6 +30,8 @@ public class EnemyAI : MonoBehaviour
 
     private enum EnemyState { Idle, Chasing, PreparingAttack, Charging, Attacking, Recovering, Cooldown }
     private EnemyState currentState = EnemyState.Idle;
+
+    public bool isDead = false;
 
     void Start()
     {
@@ -35,7 +42,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (player == null) return;
+        if (player == null || isDead) return;
 
         switch (currentState)
         {
@@ -172,5 +179,31 @@ public class EnemyAI : MonoBehaviour
         {
             player = other.transform;
         }
+    }
+
+    public void TakeDamage(){      
+        if(isInvincible) return;  
+        health--;
+        if(health <= 0){
+        isDead = true;
+        StartCoroutine(WaitDeadAnimationFinish());
+        } else {
+        StartCoroutine(InvincibilityFrames());
+        }
+        
+    }
+
+    IEnumerator InvincibilityFrames(){
+        isInvincible = true;
+        yield return new WaitForSeconds(0.5f);
+        isInvincible = false;
+    }
+
+    IEnumerator WaitDeadAnimationFinish(){
+        animator.Play("mole_dead");
+        explosionAnimator.Play("death_explosion");
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        Destroy(this.gameObject);
     }
 }

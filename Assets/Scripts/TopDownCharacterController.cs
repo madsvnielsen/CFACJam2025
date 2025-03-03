@@ -14,6 +14,10 @@ public class TopDownCharacterController : MonoBehaviour
 
     public float bounceDelay = 0.2f; // Time before bouncing off
 
+    public float jumpDuration = 0.5f; // How long the jump lasts
+    public float jumpScaleFactor = 1.3f; // How much to enlarge during jump
+    public bool isJumping = false;
+
     public bool startGame = true;
 
     private Rigidbody2D rb;
@@ -48,6 +52,45 @@ public class TopDownCharacterController : MonoBehaviour
             FindFirstObjectByType<MenuController>().RemoveStartGameToolTip();
             StartCoroutine(SwitchDirectionTowardsMouse());
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        {
+            StartCoroutine(Jump());
+        }
+    }
+
+    
+ IEnumerator Jump()
+    {
+        isJumping = true;
+        rb.gravityScale = 0; // Disable gravity to simulate jumping
+        rb.linearVelocity = Vector2.zero; // Stop movement
+
+        // Enlarge sprite
+        Vector3 originalScale = transform.localScale;
+        Vector3 jumpScale = originalScale * jumpScaleFactor;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < jumpDuration / 2)
+        {
+            transform.localScale = Vector3.Lerp(originalScale, jumpScale, elapsedTime / (jumpDuration / 2));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(jumpDuration / 2);
+
+        elapsedTime = 0f;
+        while (elapsedTime < jumpDuration / 2)
+        {
+            transform.localScale = Vector3.Lerp(jumpScale, originalScale, elapsedTime / (jumpDuration / 2));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localScale = originalScale;
+        rb.gravityScale = 1; // Re-enable gravity
+        isJumping = false;
     }
 
     void FixedUpdate()
@@ -165,5 +208,7 @@ public class TopDownCharacterController : MonoBehaviour
         // Flip sprite based on direction
         sprite.flipX = lastDirection.x < 0;
     }
+
+
 
 }

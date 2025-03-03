@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float smoothSpeed = 5f; // Speed of camera movement
-    private Transform targetStage; // The current active stage
+    public Transform targetStage; // The current active stage
 
     private GameObject player;
 

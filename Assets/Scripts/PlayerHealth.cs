@@ -28,6 +28,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if ((other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Spike")) && !isInvincible)
         {
+            if(other.gameObject.CompareTag("Enemy")){
+                if(other.gameObject.GetComponent<EnemyAI>().isDead) return;
+            }
             TakeDamage(1);
         }
     }
@@ -40,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         UpdateHealthUI();
