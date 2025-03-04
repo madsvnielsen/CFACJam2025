@@ -16,6 +16,8 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject[] hearts;
 
+     public Animator diePanelAnimator;
+
     void Start()
     {
         currentHealth = maxHealth; // Start at full health
@@ -79,6 +81,22 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player Died!");
+        PlayerPrefs.SetInt("prevScore", ScoreManager.playerScore);
+        if(!PlayerPrefs.HasKey("highscore")){
+            PlayerPrefs.SetInt("highscore", ScoreManager.playerScore);
+        }else{
+            if(PlayerPrefs.GetInt("highscore") < ScoreManager.playerScore){
+                PlayerPrefs.SetInt("highscore", ScoreManager.playerScore);
+                PlayerPrefs.SetInt("newHighscore", 1);
+            }
+        }
+        FindFirstObjectByType<TopDownCharacterController>().isDead = true;
+        diePanelAnimator.Play("DiePanel");
+        StartCoroutine(WaitForGO());
+    }
+
+    IEnumerator WaitForGO(){
+        yield return new WaitForSeconds(0.8f);
         SceneManager.LoadScene("GameOver");
     }
 }

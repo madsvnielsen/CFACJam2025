@@ -12,6 +12,7 @@ public class TopDownCharacterController : MonoBehaviour
     public float switchDirectionDelay = 0.5f;
     public float rotationSpeed = 10f;
 
+   
     public float bounceDelay = 0.2f; // Time before bouncing off
 
     public float jumpDuration = 0.5f; // How long the jump lasts
@@ -20,7 +21,9 @@ public class TopDownCharacterController : MonoBehaviour
 
     public bool startGame = true;
 
-    private Rigidbody2D rb;
+    public bool isDead = false;
+
+    public Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator animator;
     public Animator glowAnimator;
@@ -45,6 +48,11 @@ public class TopDownCharacterController : MonoBehaviour
 
     void Update()
     {
+        if(isDead){
+            rb.linearVelocity = Vector2.zero;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            return; 
+        }
         // Check for Space keypress in Update() instead of FixedUpdate()
         if (Input.GetMouseButtonDown(0) && (!isSwitchingDirection || startGame))
         {

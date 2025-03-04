@@ -6,6 +6,8 @@ public class AttackController : MonoBehaviour
     public float attackCooldown = 1f; // Cooldown between attacks
 
     public float attackDuration = 1f; // Cooldown between attacks
+
+    public float knockback = 4f;
     private bool canAttack = true;
     private bool isAttacking = false;
 
@@ -64,6 +66,7 @@ public class AttackController : MonoBehaviour
             {
                 hitEffectAnimator.Play("hit_effect");
                 enemy.TakeDamage();
+                enemy.rb.AddForce((enemy.transform.position - transform.position).normalized * knockback);
                 Debug.Log("Hit enemy!");
             }
         }

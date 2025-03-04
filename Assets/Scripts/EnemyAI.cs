@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
 
     public int health = 2;
 
+    public GameObject[] hearts;
+
     public float prepareAttackTime = 0.5f; // Time spent preparing attack
     public float chargeUpTime = 0.5f;      // Time spent charging before lunging
     public float attackCooldown = 1.0f;    // Cooldown before attacking again
@@ -18,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     public Collider2D rangeChase;        // Reference to the Chase trigger collider
     public Collider2D rangeAttack;       // Reference to the Attack trigger collider
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Animator animator;
 
     private bool isInvincible = false;
@@ -38,6 +40,8 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         rb.linearDamping = dragFactor; // Adds drag for deceleration after lunging
+        health = Random.Range(1, Mathf.Min(Mathf.Max(1,StageController.currentStage), 7));
+        UpdateHealthbar();
     }
 
     void Update()
@@ -75,7 +79,12 @@ public class EnemyAI : MonoBehaviour
                 break;
         }
     }
-
+    void UpdateHealthbar(){
+        for(int i = 0; i < hearts.Length; i++){
+            if(i < health) hearts[i].SetActive(true);
+            else hearts[i].SetActive(false);
+        }
+    }
     void HandleIdleState()
     {
         if (rangeChase.bounds.Contains(player.position) && !isAttackOnCooldown)
@@ -184,8 +193,10 @@ public class EnemyAI : MonoBehaviour
     public void TakeDamage(){      
         if(isInvincible) return;  
         health--;
+        UpdateHealthbar();
         if(health <= 0){
         isDead = true;
+        GetComponent<Collider2D>().enabled = false;
         StartCoroutine(WaitDeadAnimationFinish());
         } else {
         StartCoroutine(InvincibilityFrames());
@@ -204,6 +215,7 @@ public class EnemyAI : MonoBehaviour
         explosionAnimator.Play("death_explosion");
 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        ScoreManager.playerScore += 100;
         Destroy(this.gameObject);
     }
 }
