@@ -18,6 +18,7 @@ public class GOController : MonoBehaviour
         if(PlayerPrefs.HasKey("highscore")) highscoreText.SetText(PlayerPrefs.GetInt("highscore").ToString());
 
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame

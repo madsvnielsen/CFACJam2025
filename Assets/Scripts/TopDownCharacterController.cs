@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class TopDownCharacterController : MonoBehaviour
 {
+
+    public AudioClip directionChangeSound;
+    public AudioClip bounceSound;
+     public AudioClip jumpSound;
+
+    private AudioSource audioSource;
     public float moveSpeed = 10f;
     public float maxSpeed = 5f;
     public float stopThreshold = 0.1f;
@@ -32,6 +38,9 @@ public class TopDownCharacterController : MonoBehaviour
     private Vector2 lastDirection = Vector2.right;
     private bool isSwitchingDirection = true;
 
+    private ArtificialCursorLock acl;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,21 +48,21 @@ public class TopDownCharacterController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb.freezeRotation = true;
         rb.linearDamping = dragFactor;
-
+        acl = GetComponent<ArtificialCursorLock>();
         directionIndicator = transform.GetChild(0);
         indicatorSprite = directionIndicator.GetComponent<SpriteRenderer>();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        audioSource = GetComponent<AudioSource>();
+        
     }
 
     void Update()
     {
+   
         if(isDead){
             rb.linearVelocity = Vector2.zero;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             return; 
         }
-        // Check for Space keypress in Update() instead of FixedUpdate()
         if (Input.GetMouseButtonDown(0) && (!isSwitchingDirection || startGame))
         {
             startGame = false;
@@ -71,10 +80,11 @@ public class TopDownCharacterController : MonoBehaviour
  IEnumerator Jump()
     {
         isJumping = true;
-        rb.gravityScale = 0; // Disable gravity to simulate jumping
-        rb.linearVelocity = Vector2.zero; // Stop movement
+        rb.gravityScale = 0;
+        rb.linearVelocity = Vector2.zero; 
+        audioSource.clip = jumpSound;
+        audioSource.Play();
 
-        // Enlarge sprite
         Vector3 originalScale = transform.localScale;
         Vector3 jumpScale = originalScale * jumpScaleFactor;
 
@@ -131,7 +141,7 @@ public class TopDownCharacterController : MonoBehaviour
 
        if (directionIndicator.gameObject.activeSelf)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePosition = acl.cursorWorldPosition;
             Vector2 directionToMouse = (mousePosition - (Vector2)directionIndicator.position).normalized;
 
             float angle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
@@ -144,8 +154,10 @@ public class TopDownCharacterController : MonoBehaviour
         isSwitchingDirection = true;
         glowAnimator.SetTrigger("SwitchDirection");
         rb.linearVelocity = Vector2.zero;
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePosition = acl.cursorWorldPosition;
         Vector2 newDirection = (mousePosition - rb.position).normalized;
+        audioSource.clip = directionChangeSound;
+        audioSource.Play();
         if (newDirection.magnitude > 0.1f)
         {
             lastDirection = newDirection;
@@ -202,6 +214,8 @@ public class TopDownCharacterController : MonoBehaviour
 
         // Optional: Play impact animation or effect
         animator.SetTrigger("Impact");
+        audioSource.clip = bounceSound;
+        audioSource.Play();
 
         yield return new WaitForSeconds(bounceDelay); // Wait before bouncing
 

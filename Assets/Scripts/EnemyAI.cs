@@ -7,6 +7,11 @@ public class EnemyAI : MonoBehaviour
     public float lungeSpeed = 15f;       // Speed when lunging
     public float stopThreshold = 0.2f;   // Speed at which the enemy stops after lunging
 
+    public AudioClip enemyHitClip;
+    public AudioClip enemyDeadClip;
+     public AudioClip enemyAttackClip;
+    private AudioSource audioSource;
+
     public int health = 2;
 
     public GameObject[] hearts;
@@ -40,7 +45,8 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         rb.linearDamping = dragFactor; // Adds drag for deceleration after lunging
-        health = Random.Range(1, Mathf.Min(Mathf.Max(1,StageController.currentStage), 7));
+        health = Random.Range(1, Mathf.Min(Mathf.Max(1,StageController.currentStage)+1, 7));
+        audioSource = GetComponent<AudioSource>();
         UpdateHealthbar();
     }
 
@@ -148,13 +154,15 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(chargeUpTime);
 
         currentState = EnemyState.Attacking;
+        if(isDead) yield break;
         animator.SetTrigger("Attack");
-
         LungeAtStoredDirection();
     }
 
     void LungeAtStoredDirection()
     {
+        audioSource.clip = enemyAttackClip;
+        audioSource.Play();
         rb.linearVelocity = storedLungeDirection * lungeSpeed;
         StartCoroutine(CheckRecovery());
     }
@@ -191,7 +199,9 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void TakeDamage(){      
-        if(isInvincible) return;  
+        if(isInvincible) return; 
+        audioSource.clip = enemyHitClip;
+        audioSource.Play();
         health--;
         UpdateHealthbar();
         if(health <= 0){
@@ -213,7 +223,8 @@ public class EnemyAI : MonoBehaviour
     IEnumerator WaitDeadAnimationFinish(){
         animator.Play("mole_dead");
         explosionAnimator.Play("death_explosion");
-
+        audioSource.clip = enemyDeadClip;
+        audioSource.Play();
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         ScoreManager.playerScore += 100;
         Destroy(this.gameObject);

@@ -1,5 +1,4 @@
 using System.Collections;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +13,9 @@ public class PlayerHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer; // Player sprite
     private Color originalColor;           // Store original color
 
+    private AudioSource audioSource;
+    public AudioClip damageTakenClip;
+
     public GameObject[] hearts;
 
      public Animator diePanelAnimator;
@@ -23,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth; // Start at full health
         spriteRenderer = GetComponent<SpriteRenderer>(); 
         originalColor = spriteRenderer.color; // Store the default color
+        audioSource = GetComponent<AudioSource>();
         UpdateHealthUI();
     }
 
@@ -48,6 +51,8 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        audioSource.clip = damageTakenClip;
+        audioSource.Play();
         UpdateHealthUI();
         Debug.Log("Player HP: " + currentHealth);
 
