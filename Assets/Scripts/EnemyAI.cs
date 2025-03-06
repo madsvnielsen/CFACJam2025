@@ -40,12 +40,17 @@ public class EnemyAI : MonoBehaviour
 
     public bool isDead = false;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        if(StageController.currentStage <= 1) {
+            Destroy(gameObject);
+            return;
+        }
         rb.linearDamping = dragFactor; // Adds drag for deceleration after lunging
-        health = Random.Range(1, Mathf.Min(Mathf.Max(1,StageController.currentStage)+1, 7));
+        health = Random.Range(1, Mathf.Min(Mathf.Max(1,StageController.currentStage-1), 7));
         audioSource = GetComponent<AudioSource>();
         UpdateHealthbar();
     }
@@ -65,15 +70,14 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case EnemyState.PreparingAttack:
-                // Do nothing, animation is playing
+      
                 break;
 
             case EnemyState.Charging:
-                // Do nothing, animation is playing
+            
                 break;
 
             case EnemyState.Attacking:
-                // Do nothing, attack is happening
                 break;
 
             case EnemyState.Recovering:
@@ -81,7 +85,6 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case EnemyState.Cooldown:
-                // Do nothing, waiting for cooldown to end
                 break;
         }
     }
@@ -141,7 +144,7 @@ public class EnemyAI : MonoBehaviour
     IEnumerator PrepareAttack()
     {
         yield return new WaitForSeconds(prepareAttackTime);
-
+        if(isDead) yield break;
         currentState = EnemyState.Charging;
         animator.SetTrigger("ChargeAttack");
 
@@ -163,7 +166,10 @@ public class EnemyAI : MonoBehaviour
     {
         audioSource.clip = enemyAttackClip;
         audioSource.Play();
-        rb.linearVelocity = storedLungeDirection * lungeSpeed;
+        if(!isInvincible){
+            rb.linearVelocity = storedLungeDirection * lungeSpeed;
+        }
+        
         StartCoroutine(CheckRecovery());
     }
 

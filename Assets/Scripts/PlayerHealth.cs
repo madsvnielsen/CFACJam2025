@@ -34,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
         if ((other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Spike")) && !isInvincible)
         {
             if(other.gameObject.CompareTag("Enemy")){
+                if(other.gameObject.GetComponent<TrainingDummy>() != null) return;
                 if(other.gameObject.GetComponent<EnemyAI>().isDead) return;
             }
             TakeDamage(1);

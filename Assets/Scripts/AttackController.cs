@@ -56,11 +56,11 @@ public class AttackController : MonoBehaviour
         animator.SetTrigger("Attack");
        
 
-        yield return new WaitForSeconds(attackDuration); // Attack duration before hiding sprite
+        yield return new WaitForSeconds(attackDuration); 
 
         isAttacking = false;
 
-        yield return new WaitForSeconds(attackCooldown); // Wait for cooldown
+        yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
     }
 
@@ -75,6 +75,9 @@ public class AttackController : MonoBehaviour
                 enemy.TakeDamage();
                 enemy.rb.AddForce((enemy.transform.position - transform.position).normalized * knockback);
                 Debug.Log("Hit enemy!");
+            } else{
+                TrainingDummy td = other.GetComponent<TrainingDummy>();
+                if(td != null) td.TakeDamage();
             }
         }
     }

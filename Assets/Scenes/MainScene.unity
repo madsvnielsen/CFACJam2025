@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 216017758783977666, guid: a4a99ab4b137ce442a9f11d2cf0ab2e4, type: 3}
   - {fileID: 216017758783977666, guid: 6bb78d43144846b4791023d40eadc666, type: 3}
   - {fileID: 216017758783977666, guid: 27a9ba815110efa42ace7d5471b7d390, type: 3}
+  tutorialStage: {fileID: 216017758783977666, guid: e0093cf30aea6014cb56ae0303db1af2, type: 3}
   nextStageSound: {fileID: 8300000, guid: 43a89db448d56d34fb6b2738ba07b406, type: 3}
   stageGreetText: {fileID: 583644768}
   panelAnimator: {fileID: 676323794}

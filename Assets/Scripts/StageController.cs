@@ -8,6 +8,8 @@ public class StageController : MonoBehaviour
 
     public GameObject activeStage;
     public GameObject[] stages;
+
+    public GameObject tutorialStage;
     public AudioClip nextStageSound;
 
     public TMP_Text stageGreetText;
@@ -17,8 +19,12 @@ public class StageController : MonoBehaviour
     public Animator panelAnimator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        activeStage = Instantiate(stages[Random.Range(0,stages.Length)]);
+    {   if(currentStage == 1){
+            activeStage = Instantiate(tutorialStage);
+        } else {
+            activeStage = Instantiate(stages[Random.Range(0,stages.Length)]);
+        }
+        
         activeStage.transform.position = new Vector3(0,0,0);
         GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0,0,0);
         GameObject.FindFirstObjectByType<TopDownCharacterController>().GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
