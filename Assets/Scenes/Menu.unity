@@ -639,6 +639,7 @@ MonoBehaviour:
   currentState: 0
   menuMusic: {fileID: 8300000, guid: 51530e8ddd149ae4d8ff2e073846b7fd, type: 3}
   gameMusic: {fileID: 8300000, guid: c4918ca383e52ef4cab55f8b6b277540, type: 3}
+  tutorialMusic: {fileID: 8300000, guid: d70765c9ee8174e49966a7e99b64498e, type: 3}
 --- !u!1 &748098087
 GameObject:
   m_ObjectHideFlags: 0

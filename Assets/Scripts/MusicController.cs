@@ -3,7 +3,8 @@ using UnityEngine;
 
 public enum MusicState {
     Menu,
-    Game
+    Game,
+    Tutorial
 }
 
 public class MusicController : MonoBehaviour
@@ -13,6 +14,7 @@ public class MusicController : MonoBehaviour
 
     public AudioClip menuMusic;
     public AudioClip gameMusic;
+       public AudioClip tutorialMusic;
 
     private AudioSource musicSource;
 
@@ -37,6 +39,8 @@ public class MusicController : MonoBehaviour
         
         if(newState == MusicState.Menu){
             musicSource.clip = menuMusic;
+        } else if(newState == MusicState.Tutorial){
+            musicSource.clip = tutorialMusic;
         } else{
             musicSource.clip = gameMusic;
         }

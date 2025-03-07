@@ -19,11 +19,9 @@ public class StageController : MonoBehaviour
     public Animator panelAnimator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {   if(currentStage == 1){
+    {   
+        currentStage = 1;
             activeStage = Instantiate(tutorialStage);
-        } else {
-            activeStage = Instantiate(stages[Random.Range(0,stages.Length)]);
-        }
         
         activeStage.transform.position = new Vector3(0,0,0);
         GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0,0,0);
@@ -31,8 +29,8 @@ public class StageController : MonoBehaviour
         GameObject.FindFirstObjectByType<CameraController>().targetStage = activeStage.transform;
         PlayerPrefs.SetInt("newHighscore", 0);
         ScoreManager.playerScore = 0;
-        currentStage = 1;
-        FindFirstObjectByType<MusicController>().SetMusicState(MusicState.Game);
+        
+        FindFirstObjectByType<MusicController>().SetMusicState(MusicState.Tutorial);
         GreetStage();
     }
 
@@ -44,6 +42,7 @@ public class StageController : MonoBehaviour
 
     public void NextStage(){
       panelAnimator.Play("panelFade");
+      FindFirstObjectByType<MusicController>().SetMusicState(MusicState.Game);
       StartCoroutine(GoToNextStage());
     }
 
